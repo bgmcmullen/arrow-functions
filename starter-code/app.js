@@ -1,4 +1,5 @@
 'use strict';
+
 // STEP 1
 // This is a standard function expression. You may also be familiar with function declarations, which begin with the "function" keyword.
 const theOldWay = function(course) {
@@ -6,7 +7,7 @@ const theOldWay = function(course) {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('The old way:', theOldWay('Code 301'));
+// console.log('The old way:', theOldWay('Code 301'));
 
 
 // STEP 2
@@ -17,7 +18,7 @@ const theNewWay = (course) => {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('The new way:', theNewWay('Code 301'));
+// console.log('The new way:', theNewWay('Code 301'));
 
 
 // STEP 3
@@ -27,7 +28,7 @@ const withoutParens = course => {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('Without parens:', withoutParens('Code 301'));
+// console.log('Without parens:', withoutParens('Code 301'));
 
 
 // STEP 4
@@ -37,7 +38,7 @@ console.log('Without parens:', withoutParens('Code 301'));
 const oneLiner = course => `I cam currently enrolled in ${course}`;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('As a one-liner:', oneLiner('Code 301'));
+// console.log('As a one-liner:', oneLiner('Code 301'));
 
 
 // STEP 5
@@ -48,7 +49,7 @@ const add = function(num1, num2) {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('Let\'s do some math:', add(4, 5));
+// console.log('Let\'s do some math:', add(4, 5));
 
 
 // STEP 6
@@ -57,7 +58,7 @@ console.log('Let\'s do some math:', add(4, 5));
 const addOneLiner = (num1, num2) => `${num1} + ${num2} = ${num1 + num2}`;
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('Add as a one-liner:', addOneLiner(4, 5));
+// console.log('Add as a one-liner:', addOneLiner(4, 5));
 
 
 // STEP 7
@@ -69,7 +70,7 @@ const multiLiner = word => {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('Multi-line arrow function:', multiLiner('hello'));
+// console.log('Multi-line arrow function:', multiLiner('hello'));
 
 
 // STEP 8
@@ -84,7 +85,7 @@ const oldObject = function(array) {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('Hello from the old object function', oldObject(['hi', 'hello', 'are you there?']));
+// console.log('Hello from the old object function', oldObject(['hi', 'hello', 'are you there?']));
 
 
 // STEP 9
@@ -97,7 +98,7 @@ const newObject = array => ({
 });
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log('Hello from the new object function', newObject(['hi', 'hello', 'are you there?']));
+// console.log('Hello from the new object function', newObject(['hi', 'hello', 'are you there?']));
 
 
 // STEP 10
@@ -107,28 +108,34 @@ console.log('Hello from the new object function', newObject(['hi', 'hello', 'are
 
 
 
-let sum = (a, b, c, d) =>  a + b + c + d;
-
+let sum = function(a, b, c, d) {
+  return a + b + c + d;
+};
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log(sum(1, 2, 3, 4));
+// console.log(sum(1, 2, 3, 4));
 
 
-let objectLit = () => ({
+let objectLit = function() {
+  return {
     key1: 'value1',
     key2: 'value2',
     key3: 'value3',
-  });
+  };
+};
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log(objectLit());
+// console.log(objectLit());
 
 
-let sumAndProduct = (a, b) => [a + b, a * b];
-
+let sumAndProduct = function(a, b) {
+  let sum = a + b;
+  let product = a * b;
+  return [sum, product];
+};
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log(sumAndProduct(3, 9));
+// console.log(sumAndProduct(3, 9));
 
 
 let message = function(name) {
@@ -136,7 +143,7 @@ let message = function(name) {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log(message('Allie'));
+// console.log(message('Allie'));
 
 
 let Student = function(name, age, hometown) {
@@ -149,19 +156,19 @@ let joe = new Student('Joe Schmoe', 100, 'Anytown, USA');
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this code to break!
-console.log(joe);
+// console.log(joe);
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
 
 
-Student.prototype.greeting = () => {
-  return `Hi, my name is ${joe.name}`;
+Student.prototype.greeting = function() {
+  return `Hi, my name is ${this.name}`;
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
 // Note that the arrow function will cause this method to break!
-console.log(joe.greeting());
+// console.log(joe.greeting());
 
 // TODO: After viewing the previous console.log(), return the code to a working state.
 
@@ -172,7 +179,7 @@ Student.courseName = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-console.log(Student.courseName());
+// console.log(Student.courseName());
 
 
 
@@ -183,12 +190,12 @@ Student.prototype.scope = function() {
 };
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-joe.scope();
+// joe.scope();
 
 Student.prototype.scopeArrow = () => console.log(this);
 
 // TODO: Uncomment the following line of code to see the output in the browser console
-joe.scopeArrow();
+// joe.scopeArrow();
 
 // TODO: Write a COMMENT below to answer the following questions.
 // 1. What is "this" when joe.scope() is invoked?
@@ -197,5 +204,3 @@ joe.scopeArrow();
 //
 // 3. Explain why "this" is different when an arrow function is used.
 //
-
-/* In joe.scope "this" refers to the instance of the Student object. In joe.scopeArrow it is the incompassing window object. This happens because "this" in an arrow function refers to what the arrow function is contained in not the arrow function itself. In this case there is no ecompassing code so it refers to the global window. */
